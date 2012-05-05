@@ -8,9 +8,9 @@ public class IncidentTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		incident1 = new Incident("[17:15:39.956] [@Illwrath] [@Illwrath] [Recharge and Reload {814287144615936}] [ApplyEffect {836045448945477}: Recharge and Reload {814287144615936}] ()");
-		incident2 = new Incident("[16:55:07.574] [@Illwrath] [Project Sav-Rak {2819585900281856}] [] [ApplyEffect {836045448945477}: Damage {836045448945501}] (142* energy {836045448940874}) <214>");
-		incident3 = new Incident("[16:55:08.869] [Project Sav-Rak {2819585900281856}] [@Illwrath] [Swipe {2861736709324800}] [ApplyEffect {836045448945477}: Damage {836045448945501}] (1771 kinetic {836045448940873}) <1771>");
+		incident1 = new Incident("[17:15:39.956] [@Illwrath] [@Illwrath] [Recharge and Reload {814287144615936}] [Applyresult {836045448945477}: Recharge and Reload {814287144615936}] ()");
+		incident2 = new Incident("[16:55:07.574] [@Illwrath] [Project Sav-Rak {2819585900281856}] [] [Applyresult {836045448945477}: Damage {836045448945501}] (142* energy {836045448940874}) <214>");
+		incident3 = new Incident("[16:55:08.869] [Project Sav-Rak {2819585900281856}] [@Illwrath] [Swipe {2861736709324800}] [Applyresult {836045448945477}: Damage {836045448945501}] (1771 kinetic {836045448940873}) <1771>");
 	}
 	@Test
 	public void testTime1() {
@@ -68,7 +68,7 @@ public class IncidentTest {
 	}
 	@Test
 	public void testincidentType1() {
-		String expected = "ApplyEffect";
+		String expected = "Applyresult";
 		String actual = incident1.getIncident_type();
 		Assert.assertEquals(expected, actual);
 	}
@@ -79,15 +79,15 @@ public class IncidentTest {
 		Assert.assertEquals(expected, actual);
 	}	
 	@Test
-	public void testEffect1() {
+	public void testresult1() {
 		String expected = "Recharge and Reload";
-		String actual = incident1.getEffect();
+		String actual = incident1.getresult();
 		Assert.assertEquals(expected, actual);
 	}
 	@Test
-	public void testEffectId1() {
+	public void testresultId1() {
 		String expected = "814287144615936";
-		String actual = incident1.getEffect_id();
+		String actual = incident1.getresult_id();
 		Assert.assertEquals(expected, actual);
 	}
 //	()
@@ -152,7 +152,7 @@ public class IncidentTest {
 	}
 	@Test
 	public void testincidentType2() {
-		String expected = "ApplyEffect";
+		String expected = "Applyresult";
 		String actual = incident2.getIncident_type();
 		Assert.assertEquals(expected, actual);
 	}
@@ -163,15 +163,15 @@ public class IncidentTest {
 		Assert.assertEquals(expected, actual);
 	}
 	@Test
-	public void testEffect2() {
+	public void testresult2() {
 		String expected = "Damage";
-		String actual = incident2.getEffect();
+		String actual = incident2.getresult();
 		Assert.assertEquals(expected, actual);
 	}
 	@Test
-	public void testEffectId2() {
+	public void testresultId2() {
 		String expected = "836045448945501";
-		String actual = incident2.getEffect_id();
+		String actual = incident2.getresult_id();
 		Assert.assertEquals(expected, actual);
 	}
 //	(142* energy {836045448940874}) <214>

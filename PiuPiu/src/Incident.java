@@ -7,11 +7,11 @@ public class Incident {
 	private String name_id;
 	private String incident_type;
 	private String incident_id;
-	private String effect;
-	private String effect_id;
+	private String result;
+	private String result_id;
 	private int magnitude;
 	private Boolean crit;
-	private String modify;
+	private String damageType;
 	private int threat;
 	
 	Incident(String line){
@@ -34,10 +34,13 @@ public class Incident {
 		incident_type = working2[0].substring(0, location-1).trim();
 		incident_id = working2[0].substring(location+1,working2[0].length()).trim();
 		location = working2[1].indexOf('{');
-		effect = working2[1].substring(0, location-1).trim();
-		effect_id = working2[1].substring(location+1,working2[1].length()).trim();
+		result = working2[1].substring(0, location-1).trim();
+		result_id = working2[1].substring(location+1,working2[1].length()).trim();
+
 		
-		// need to finish this		
+		// Minimum case = ()
+		// need to finish the last item in the list  (magnitude* damageType {ID}) <Threat>	
+		// Not all this is guarenteed to exist
 	}
 
 	public String getTime(){return time;}
@@ -54,9 +57,9 @@ public class Incident {
 	public int getMagnitude(){return magnitude;}
 	public Boolean isCrit(){return crit;}
 	public int getThreat(){return threat;}
-	public String getModify(){return modify;}
-	public String getEffect(){return effect;}
-	public String getEffect_id(){return effect_id;}
+	public String getdamageType(){return damageType;}
+	public String getresult(){return result;}
+	public String getresult_id(){return result_id;}
 	
 	private String [] lineSplit(String line){
 		line = line.replace("[", "");
@@ -65,6 +68,12 @@ public class Incident {
 			splits[i]=splits[i].trim();
 		}
 		return splits;
+	}
+	public boolean isDamage(){
+		return result == "Damage";
+	}
+	public boolean isHealz(){
+		return result == "Heal";
 	}
 	
 }
