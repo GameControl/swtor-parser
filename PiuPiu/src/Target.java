@@ -15,15 +15,7 @@ public class Target {
 			id = name =input.substring(1, input.length());
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public boolean isPlayer() {
-		return player;
-	}
+	public String getName(){return name;}
+	public String getId() {return id;}
+	public boolean isPlayer() {return player;}
 }

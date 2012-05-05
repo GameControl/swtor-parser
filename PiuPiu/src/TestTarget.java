@@ -8,7 +8,7 @@ public class TestTarget {
 
 	Target target1;
 	Target target2;
-	
+	Incident incident1;
 	@Before
 	public void setUp() throws Exception {
 		target1 = new Target("Project Sav-Rak {2819585900281856}");
